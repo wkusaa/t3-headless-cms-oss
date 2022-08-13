@@ -16,7 +16,9 @@
     "@trpc/next": "^9.27.0",
     "@trpc/react": "^9.27.0",
     "@trpc/server": "^9.27.0",
-    "next": "12.2.3",
+    "bcrypt": "^5.0.1",
+    "formik": "^2.2.9",
+    "next": "12.2.5",
     "next-auth": "^4.10.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -25,6 +27,7 @@
     "zod": "^3.17.3"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
     "@types/node": "18.0.0",
     "@types/react": "18.0.14",
     "@types/react-dom": "18.0.5",

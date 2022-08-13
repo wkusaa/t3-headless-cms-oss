@@ -1,5 +1,7 @@
 import type { NextPage } from "next";
+import { getSession, signIn, signOut, useSession } from 'next-auth/react';
 import Head from "next/head";
+import Link from 'next/link';
 import { trpc } from "../utils/trpc";
 
 type TechnologyCardProps = {
@@ -8,8 +10,34 @@ type TechnologyCardProps = {
   documentation: string;
 };
 
+
+type AuthButtons = {
+  children: string;
+  handler: () => void 
+}
+
+const SignInDiscordHandler = () => {
+  signIn('discord');
+}
+
+const SignInHandler = () => {
+  signIn();
+}
+
+const SignOutHandler = () => {
+  signOut();
+}
+
+const AuthButton = ({ children, handler }: AuthButtons) => {
+  return (
+    <button onClick={handler} className='m-4 rounded-lg leading-normal font-extrabold text-gray-700 bg-purple-300 p-4'>{children}</button>
+  )
+}
+
 const Home: NextPage = () => {
   const hello = trpc.useQuery(["example.hello", { text: "from tRPC" }]);
+  const session = useSession();
+  console.log(session);
 
   return (
     <>
@@ -23,6 +51,16 @@ const Home: NextPage = () => {
         <h1 className="text-5xl md:text-[5rem] leading-normal font-extrabold text-gray-700">
           Create <span className="text-purple-300">T3</span> App
         </h1>
+        {!session.data ?
+          <>
+            <Link href='/auth/login'><span className='m-4 rounded-lg leading-normal font-extrabold text-gray-700 bg-purple-300 p-4 hover:cursor-pointer'>Sign In</span></Link>
+            or
+            <Link href='/auth/register'><span className='m-4 rounded-lg leading-normal font-extrabold text-gray-700 bg-purple-300 p-4 hover:cursor-pointer'>Sign Up</span></Link>
+          </> :
+          <><p>Hello There <span className='font-extrabold'>{session.data.user?.username ? session.data.user?.username : session.data.user?.name}</span>! Welcome back!</p>
+            <AuthButton handler={SignOutHandler}>Logout</AuthButton>
+          </>
+        }
         <p className="text-2xl text-gray-700">This stack uses:</p>
         <div className="grid gap-3 pt-3 mt-3 text-center md:grid-cols-2 lg:w-2/3">
           <TechnologyCard

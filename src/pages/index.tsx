@@ -54,8 +54,6 @@ const Home: NextPage = () => {
         {!session.data ?
           <>
             <Link href='/auth/login'><span className='m-4 rounded-lg leading-normal font-extrabold text-gray-700 bg-purple-300 p-4 hover:cursor-pointer'>Sign In</span></Link>
-            or
-            <Link href='/auth/register'><span className='m-4 rounded-lg leading-normal font-extrabold text-gray-700 bg-purple-300 p-4 hover:cursor-pointer'>Sign Up</span></Link>
           </> :
           <><p>Hello There <span className='font-extrabold'>{session.data.user?.username ? session.data.user?.username : session.data.user?.name}</span>! Welcome back!</p>
             <AuthButton handler={SignOutHandler}>Logout</AuthButton>

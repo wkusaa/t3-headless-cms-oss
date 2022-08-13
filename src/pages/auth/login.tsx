@@ -16,7 +16,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }
 }
 
-const SignInForm = (props: any) => {
+const LoginForm = (props: any) => {
     // Note that we have to initialize ALL of fields with values. These
     // could come from props, but since we don’t want to prefill this form,
     // we just use an empty string. If we don’t do this, React will yell
@@ -42,7 +42,7 @@ const SignInForm = (props: any) => {
             {formik.isSubmitting || props.auth?.query.error ? <div className={'rounded-lg p-4 bg-purple-100 font-extrabold leading-normal text-center'}>{formik.isSubmitting ? 'You will be redirected shortly...' : props.auth?.query.error === 'CredentialsSignin' ? 'Error. Please Try Again!' : ''}</div> : ''}
             <div className='flex flex-col gap-4'>
                 <label htmlFor="username" className='text-2xl font-bold'>Username</label>
-                <input className='border-black border-2 p-2 rounded-md'
+                <input className='border-black border-2 p-4 rounded-md text-2xl font-bold'
                     id="username"
                     name="username"
                     type="text"
@@ -52,7 +52,7 @@ const SignInForm = (props: any) => {
                 />
 
                 <label htmlFor="password" className='text-2xl font-bold'>Password</label>
-                <input className='border-black border-2 p-2 rounded-md'
+                <input className='border-black border-2 p-4 rounded-md text-2xl font-bold'
                     id="password"
                     name="password"
                     type="password"
@@ -66,7 +66,7 @@ const SignInForm = (props: any) => {
     );
 };
 
-const SignInPage: NextPage = (props) => {
+const LoginPage: NextPage = (props) => {
     return (
         <>
             <Head>
@@ -79,7 +79,7 @@ const SignInPage: NextPage = (props) => {
                 <h1 className="text-5xl md:text-[5rem] leading-normal font-extrabold text-gray-700">
                     Create <span className="text-purple-300">T3</span> App
                 </h1>
-                <SignInForm auth={props} />
+                <LoginForm auth={props} />
             </main>
         </>
     );
@@ -88,4 +88,4 @@ const SignInPage: NextPage = (props) => {
 
 
 
-export default SignInPage;
+export default LoginPage;

@@ -1,6 +1,6 @@
 # T3 App with Credentials Provider with JWT
 
-I clone the T3 App Repo and configured Next Auth to use username and password style of authentication. Feel free to clone or fork the repo 😎.
+I cloned the T3 App Repo and configured Next Auth to use username and password style of authentication. Feel free to clone or fork the repo 😎.
 
 # Create T3 App
 

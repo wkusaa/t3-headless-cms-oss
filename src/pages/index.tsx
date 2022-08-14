@@ -12,7 +12,7 @@ type TechnologyCardProps = {
 
 
 type AuthButtons = {
-  children: string;
+  children: string | JSX.Element;
   handler: () => void 
 }
 
@@ -35,7 +35,8 @@ const AuthButton = ({ children, handler }: AuthButtons) => {
 }
 
 const Home: NextPage = () => {
-  const hello = trpc.useQuery(["example.hello", { text: "from tRPC" }]);
+  const hello = trpc.useQuery(["example.hello", {text: "hello"}]);
+  const seeAll = trpc.useQuery(["example.seeAll"]);
   const session = useSession();
   console.log(session);
 
@@ -84,6 +85,7 @@ const Home: NextPage = () => {
         </div>
         <div className="pt-6 text-2xl text-blue-500 flex justify-center items-center w-full">
           {hello.data ? <p>{hello.data.greeting}</p> : <p>Loading..</p>}
+          {seeAll.data ? <p>{seeAll.data.text}</p> : <p>Loading..</p>}
         </div>
       </main>
     </>

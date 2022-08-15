@@ -12,6 +12,10 @@ export const serverSchema = z.object({
   NEXTAUTH_URL: z.string().url(),
   DISCORD_CLIENT_ID: z.string(),
   DISCORD_CLIENT_SECRET: z.string(),
+  ALI_REGION: z.string(),
+  ALI_ACCESS_KEY_ID: z.string(),
+  ALI_ACCESS_KEY_SECRET: z.string(),
+  ALI_BUCKET: z.string(),
 });
 
 /**

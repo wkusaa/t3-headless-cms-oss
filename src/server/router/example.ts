@@ -21,6 +21,21 @@ export const exampleRouter = createRouter()
   })
   .query("seeAll", {
     async resolve() {
-      return { text : "This is all"}
+      return { text: "This is all" }
     },
-  });
+  })
+  .mutation('user', {
+    // using zod schema to validate and infer input values
+    input: z
+      .object({
+        username: z.string(),
+        password: z.string(),
+        email: z.string(),
+      }),
+    async resolve({ input, ctx }) {
+
+      
+
+      return true;
+    },
+  })

@@ -37,8 +37,6 @@ const AuthButton = ({ children, handler }: AuthButtons) => {
 const Home: NextPage = () => {
   const hello = trpc.useQuery(["example.hello", {text: "WOW"}]);
   const seeAll = trpc.useQuery(["example.seeAll"]);
-  const put = trpc.useMutation(["oss.putFile"]);
-  put.mutateAsync();
   const session = useSession();
   console.log(session);
 

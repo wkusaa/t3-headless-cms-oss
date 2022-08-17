@@ -15,4 +15,7 @@ function defineNextConfig(config) {
 export default defineNextConfig({
   reactStrictMode: true,
   swcMinify: true,
+  images: {
+    domains: ['gt-test-bucket.oss-ap-southeast-3.aliyuncs.com'],
+  },
 });

@@ -39,7 +39,7 @@ const LoginForm = (props: any) => {
 
     return (
         <form onSubmit={formik.handleSubmit} className='w-2/3'>
-            {formik.isSubmitting || props.auth?.query.error ? <div className={'rounded-lg p-4 bg-purple-100 font-extrabold leading-normal text-center'}>{formik.isSubmitting ? 'You will be redirected shortly...' : props.auth?.query.error === 'CredentialsSignin' ? 'Error. Please Try Again!' : ''}</div> : ''}
+            {formik.isSubmitting || props.auth?.query?.error ? <div className={'rounded-lg p-4 bg-purple-100 font-extrabold leading-normal text-center'}>{formik.isSubmitting ? 'You will be redirected shortly...' : props.auth?.query.error === 'CredentialsSignin' ? 'Error. Please Try Again!' : ''}</div> : ''}
             <div className='flex flex-col gap-4'>
                 <label htmlFor="username" className='text-2xl font-bold'>Username</label>
                 <input className='border-black border-2 p-4 rounded-md text-2xl font-bold'

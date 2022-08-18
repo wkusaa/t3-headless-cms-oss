@@ -1,6 +1,6 @@
-# T3 App with Credentials Provider with JWT
+# T3 App Headless CMS with Alibaba OSS
 
-I cloned the T3 App Repo and configured Next Auth to use username and password style of authentication. Feel free to clone or fork the repo 😎.
+I cloned the T3 App Repo and configured Next Auth to use username and password style of authentication. Plus I also added the usage of Alibaba OSS (AWS S3 Alternative) as a storage service for the goal of making a Headless CMS. Feel free to clone or fork the repo 😎.
 
 # Create T3 App
 
